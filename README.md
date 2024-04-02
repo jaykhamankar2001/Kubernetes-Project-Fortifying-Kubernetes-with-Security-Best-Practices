@@ -91,7 +91,7 @@ kubectl create -f https://github.com/kyverno/kyverno/releases/download/v1.10.0/i
   ```
   kubectl apply -f kyverno-enforce-security-context.yaml
   ```
-  ![alt text](image.png)
+ ![image](https://github.com/jaykhamankar2001/Kubernetes-Project-Fortifying-Kubernetes-with-Security-Best-Practices/assets/74448020/7dc1727e-d686-4dbc-873c-9699c945ce6b)
 
   In this image, you can see my attempt to install frontend-deployment.yaml without runAsNonRoot, Kyverno showed that I need to include runAsNonRoot
 
