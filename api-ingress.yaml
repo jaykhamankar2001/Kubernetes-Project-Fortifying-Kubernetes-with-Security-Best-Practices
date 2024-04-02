@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api
+  namespace: k8s-project
+  labels:
+    role: api
+    env: demo
+spec:
+  rules:
+  - host: a509b43f345fb427091c3af38e0bce76-1496792853.us-east-2.elb.amazonaws.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: api
+            port:
+              number: 8080
+

@@ -1,0 +1,25 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: enforce-security-context
+spec:
+  validationFailureAction: Enforce
+  background: true
+  rules:
+  - name: enforce-security-context
+    match:
+      resources:
+        kinds:
+        - Deployment
+    validate:
+      message: "Containers must have non-privileged, read-only root filesystem, and run as non-root security context"
+      pattern:
+        spec:
+          containers:
+          - name: "*"
+            securityContext:
+              runAsNonRoot: true
+              readOnlyRootFilesystem: true
+              privileged: false
+              
+
